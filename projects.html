@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Supplementary Material C — Current Projects</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="paper">
+
+  <div class="arxiv-tag"><a href="index.html">← return to main paper</a> · Supplementary Material C</div>
+
+  <h1 class="title">Supplementary Material C:<br>Current Projects &amp; Ongoing Work</h1>
+  <div class="authors">Johannes Peterlechner (he/him)</div>
+  <div class="affil"><sup>1</sup><a href="https://www.tugraz.at/institute/ibc/research/research-groups/protein-biochemistry">Protein Biochemistry Group, Institute of Biochemistry</a>, Graz University of Technology, Graz, Austria</div>
+  <div class="contact">
+    <a href="mailto:peterlechner.johannes@gmail.com">peterlechner.johannes@gmail.com</a> ·
+    <a href="https://github.com/MisterPetz">github.com/MisterPetz</a>
+  </div>
+
+  <div class="abstract">
+    <div class="label">Abstract</div>
+    <p>This supplement enumerates selected ongoing projects spanning environmental sensing infrastructure, biomedical image analysis, and computational protein design. Work is organized by domain rather than chronology, since several efforts run concurrently. Where public code exists, it is linked; where work is under active development or collaboration, status is noted in place of a release.</p>
+  </div>
+
+  <div class="keywords"><b>Keywords:</b> environmental monitoring, sensor networks, image classification, molecular dynamics, structure prediction (AlphaFold, Boltz), de novo protein design (RFdiffusion, ProteinMPNN), in-silico biology, pipeline engineering, data science</div>
+
+  <div class="body-cols">
+
+    <h2>C.1 Environmental Sensing Infrastructure</h2>
+
+    <h3>Nationwide sensor monitoring system</h3>
+    <p class="noindent">Design and development of a nationwide sensor monitoring system for environmental data, built for the Austrian Federal Ministry of Agriculture, together with researchers at <a href="https://boku.ac.at/">BOKU — University of Natural Resources and Life Sciences, Vienna (Universität für Bodenkultur Wien)</a>. The system aggregates readings from geographically distributed sensor nodes into a central platform for monitoring, alerting, and downstream analysis. Focus areas include reliable data ingestion, time-series storage, and dashboards that make field data legible to both policy stakeholders and researchers.</p>
+    <p><b>Status:</b> in development. <b>Role:</b> system design &amp; implementation. <b>Partners:</b> Austrian Federal Ministry of Agriculture, BOKU Vienna.</p>
+
+    <h2>C.2 Biomedical Image Analysis</h2>
+
+    <h3>Spheroidal cell classification in mouse cancer models</h3>
+    <p class="noindent">A suite of image classification tools for identifying and characterizing spheroidal cells in mouse cancer models. The tooling supports quantitative analysis of microscopy imagery — segmentation, classification, and morphological measurement — to reduce manual scoring effort and improve reproducibility across experimental batches. Approaches range from classical image processing to convolutional models depending on the assay.</p>
+    <p><b>Status:</b> active. <b>Domain:</b> cancer biology, microscopy. <b>Stack:</b> Python, image-analysis / deep-learning tooling.</p>
+
+    <h2>C.3 In-Silico Structural Biology &amp; Protein Design</h2>
+    <p class="noindent">A cluster of computational projects connecting the wet-lab focus of the Protein Biochemistry Group with modern in-silico methods — spanning molecular dynamics, structure prediction, de novo design, and the tooling that ties them together into reproducible pipelines.</p>
+
+    <h3>Molecular dynamics (MD) simulations</h3>
+    <p class="noindent">Setup and analysis of molecular dynamics simulations to probe protein stability, conformational dynamics, and ligand/binder interactions. Work covers system preparation, force-field selection, running production simulations on HPC resources, and downstream trajectory analysis — RMSD/RMSF, contact and hydrogen-bond analysis, and free-energy estimates where appropriate — to connect simulated behaviour back to experimental observations.</p>
+    <p><b>Status:</b> active. <b>Stack:</b> GROMACS / OpenMM, Python (MDAnalysis / MDTraj), HPC.</p>
+
+    <h3>Structure prediction &amp; modelling</h3>
+    <p class="noindent">Use of modern structure-prediction and co-folding methods — AlphaFold and Boltz — for modelling proteins and complexes, evaluating predictions, and feeding high-confidence models into design and simulation workflows. Emphasis on judging model reliability (pLDDT/PAE) and choosing which predictions are trustworthy enough to build on.</p>
+    <p><b>Status:</b> ongoing. <b>Stack:</b> AlphaFold, Boltz, PyMOL, Python.</p>
+
+    <h3>De novo protein &amp; binder design</h3>
+    <p class="noindent">Computational design of novel proteins and binders using deep-learning generative methods, followed by in-silico screening and ranking of candidates before experimental validation. A typical pipeline generates backbones with <b>RFdiffusion</b> / <b>RFdiffusion3</b>, designs sequences with <b>ProteinMPNN</b>, and filters candidates by re-predicting structures (AlphaFold, Boltz) and scoring predicted metrics to prioritise a shortlist for the wet lab.</p>
+    <p><b>Status:</b> active. <b>Stack:</b> RFdiffusion / RFdiffusion3, ProteinMPNN, AlphaFold, Boltz, Python.</p>
+
+    <h3>Protein-design tool development</h3>
+    <p class="noindent">Development of in-house tooling to support the group's design work: scripts and small libraries that wrap external design/prediction tools, standardise inputs and outputs, and make analysis reproducible across projects. The aim is to lower the barrier for other group members to run design and analysis without deep command-line or cluster expertise.</p>
+    <p><b>Status:</b> ongoing. <b>Stack:</b> Python.</p>
+
+    <h3>Pipeline development with ProtFlow</h3>
+    <p class="noindent">Development of reproducible protein-design pipelines built on <b>ProtFlow</b> (<a href="https://github.com/mabr3112/ProtFlow">github.com/mabr3112/ProtFlow</a>, a Python package for managing protein-design workflows on computing clusters and local machines, maintained by Markus Braun). The goal is to chain design, prediction, and analysis steps — including the MD and structure-prediction work above — into robust, repeatable pipelines that others in the group can run without deep tooling knowledge.</p>
+    <p><b>Status:</b> ongoing. <b>Collaboration:</b> Markus Braun (ProtFlow). <b>Stack:</b> Python, HPC.</p>
+
+    <h2>C.4 Data Science &amp; Tooling</h2>
+    <p class="noindent">A range of data-science work supporting the above: exploratory analysis, model training and evaluation, visualization, and reproducible pipelines that turn raw experimental and sensor data into analyzable, shareable results. This cross-cutting layer connects the sensing, imaging, and protein-design efforts, and reflects the software-development and data-science module training completed alongside the biochemistry master's.</p>
+
+    <h2>C.5 Project Index</h2>
+    <figure>
+      <table>
+        <caption><b>Table C.1.</b> Selected active projects by domain and status.</caption>
+        <thead><tr><th>Project</th><th>Domain</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Nationwide sensor monitoring (Ministry / BOKU)</td><td>Environmental sensing</td><td>In development</td></tr>
+          <tr><td>Spheroidal cell classification</td><td>Biomedical imaging</td><td>Active</td></tr>
+          <tr><td>Molecular dynamics simulations</td><td>In-silico biology</td><td>Active</td></tr>
+          <tr><td>Structure prediction &amp; modelling</td><td>In-silico biology</td><td>Ongoing</td></tr>
+          <tr><td>De novo protein &amp; binder design</td><td>Protein design</td><td>Active</td></tr>
+          <tr><td>Protein-design tool development</td><td>Tooling</td><td>Ongoing</td></tr>
+          <tr><td>ProtFlow pipeline development</td><td>Pipeline engineering</td><td>Ongoing</td></tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2 class="references">References &amp; Links</h2>
+    <div class="references">
+      <ol>
+        <li>Protein Biochemistry Group, Institute of Biochemistry, TU Graz. <a href="https://www.tugraz.at/institute/ibc/research/research-groups/protein-biochemistry">tugraz.at/institute/ibc</a>.</li>
+        <li>BOKU — University of Natural Resources and Life Sciences, Vienna (Universität für Bodenkultur Wien). <a href="https://boku.ac.at/">boku.ac.at</a>.</li>
+        <li>M. Braun, <i>ProtFlow</i>. <a href="https://github.com/mabr3112/ProtFlow">github.com/mabr3112/ProtFlow</a>.</li>
+        <li>J. Peterlechner, <i>Source code repository</i>. <a href="https://github.com/MisterPetz">github.com/MisterPetz</a>.</li>
+      </ol>
+    </div>
+
+    <div class="footnote">Project statuses reflect ongoing work and are updated as milestones are reached.</div>
+  </div>
+</div>
+</body>
+</html>
